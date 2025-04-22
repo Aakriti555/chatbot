@@ -1,4 +1,4 @@
-#!D:\Chatbot\chat\Scripts\python.exe
+#!D:\GithubProjects\Github Projects\chatbot\chat\Scripts\python.exe
 
 import sys
 import json

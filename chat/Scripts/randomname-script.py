@@ -1,4 +1,4 @@
-#!D:\Chatbot\chat\Scripts\python.exe
+#!"D:\GithubProjects\Github Projects\chatbot\chat\Scripts\python.exe"
 # EASY-INSTALL-ENTRY-SCRIPT: 'randomname==0.1.5','console_scripts','randomname'
 import re
 import sys
