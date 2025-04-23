@@ -5,15 +5,19 @@ intents:
   - goodbye
   - affirm
   - deny
+  - inform
   - mood_great
   - mood_unhappy
   - bot_challenge 
-  - phone
   - repeat_phone
+  - phone 
+  
 
 entities:
   - number
-
+  - city 
+  - name
+ 
 slots:
   phone:
     type: text
@@ -22,25 +26,42 @@ slots:
       - type: from_entity
         entity: number
   
-  # # age:
-  #   type: text
-  #   influence_conversation: false
-  #   mapppings:
-  #   - type: from_entity
-  #   entity: number
+  city:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: city
+  
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: name
 
+forms:
+  simple_form:
+    required_slots:
+      - name
+      - city
+      - phone
 
 responses:
   utter_greet:
   - text: "Hey! How are you?"
+  
   utter_weather: 
   - text: "The weather is great today"
-   
-  utter_ask_age:
-  - text: "What is your age ?"
 
   utter_ask_phone:
-  - text: " Enter your phone number"
+  - text: "Enter your phone number"
+
+  utter_ask_name:
+  - text: "Hey there! What is your good name?"
+
+  utter_ask_city:
+  - text: "Where do you live?"
 
   utter_cheer_up:
   - text: "Here is something to cheer you up:"
@@ -63,4 +84,4 @@ session_config:
   carry_over_slots_to_new_session: true
 
 actions:
-  - action_say_phone
+- action_say_data

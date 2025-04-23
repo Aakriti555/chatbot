@@ -46,7 +46,7 @@ nlu:
     - tell me the weather
     - weather
 
-- intent: phone
+- intent: number
   examples: |
     - [7559854598](number)
     - This is my phone number [2365894561](number)
@@ -61,6 +61,26 @@ nlu:
     - can you repeat my phone number
     - My phone number is ? 
 
+- intent: inform
+  examples: |
+    - [7559854598](number)
+    - This is my phone number [2365894561](number)
+    - Here you go [9874562159](number)
+    - My phone number is [1234569870](number)
+    - my name is [sahil](name)
+    - I m [ajay](name)
+    - People call me [Jagdish](name)
+    - [Anusha](name)
+    - My name is [Anu](name)
+    - I live in [New York](city)
+    - I am from [Delhi](city)
+    - my city is [Mumbai](city)
+    - My city is [Goa](city)
+    - I live in [Panauti 12](city)
+    - My city is [Panauti 12](city)
+    - I am from [Panauti](city)
+    - [Kathmandu](city)
+    - [Pokhara](city)
 
 - intent: deny
   examples: |
