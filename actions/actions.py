@@ -9,7 +9,7 @@
 
 from typing import Any, Text, Dict, List
 
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker , FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 
 
@@ -29,3 +29,22 @@ class ActionSayData(Action):
         dispatcher.utter_message(text =f"Hey {name}, {city} is a very beautiful place. Your Phone number is {phone}.")
             
         return []
+    
+class ValidateSimpleForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_simple_form"
+
+    def validate_phone(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+        phone = str(slot_value)
+
+        if len(phone) != 10 or not phone.isdigit():
+            dispatcher.utter_message(text="Invalid phone number. Please enter a valid 10-digit number.")
+            return {"phone": None}
+        else:
+            return {"phone": phone}

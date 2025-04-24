@@ -25,6 +25,9 @@ slots:
     mappings:
       - type: from_entity
         entity: number
+        conditions:
+        - active_loop: simple_form 
+          requested_slot: phone
   
   city:
     type: text
@@ -84,4 +87,7 @@ session_config:
   carry_over_slots_to_new_session: true
 
 actions:
+- utter_ask_continue
+- utter_goodbye
 - action_say_data
+- validate_simple_form

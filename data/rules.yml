@@ -27,3 +27,13 @@ rules:
   - slot_was_set:
     - requested_slot: null
   - action: action_say_data
+
+
+- rule: Interuption in simple form 
+  condition:
+  - active_loop: simple_form
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+  - action: simple_form
+  - active_loop: simple_form
